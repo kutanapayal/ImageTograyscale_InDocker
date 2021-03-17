@@ -4,6 +4,6 @@ services:
     build: ./grayscale
     volumes:
       - ./grayscale:/usr/src/app
-    hostname: env_host
+    #hostname: env_hostname
     ports:
       - 8099:8099
