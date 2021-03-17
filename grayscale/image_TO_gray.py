@@ -32,4 +32,4 @@ async def image(image:UploadFile=File(...)):
     return file
 
 if __name__=="__main__":
-    uvicorn.run(app,host="ec2-3-84-239-94.compute-1.amazonaws.com",port=8099)
+    uvicorn.run(app,host="",port=8099)
