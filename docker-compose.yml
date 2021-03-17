@@ -1,0 +1,7 @@
+version: '3'
+services:
+  opencv_app:
+    build: ./grayscale
+    volumes:
+      - ./grayscale:/usr/src/app
+    hostname: 'ec2-34-201-165-69.compute-1.amazonaws.com'
