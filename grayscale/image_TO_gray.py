@@ -10,11 +10,11 @@ async def image(image:UploadFile=File(...)):
     print(image.file)
 
     try:
-        os.mkdir("images")
+        os.mkdir("image_volume")
         print(os.getcwd())
     except Exception as e:
         print(e)
-    file_name=os.getcwd()+"/images/"+image.filename.replace(" ","-")
+    file_name=os.getcwd()+"/image_volume/"+image.filename.replace(" ","-")
 
     with open(file_name,'wb+') as f:
         f.write(image.file.read())
@@ -22,7 +22,7 @@ async def image(image:UploadFile=File(...)):
     
     img = cv.imread(file_name)
     gray=cv.cvtColor(img,cv.COLOR_BGR2GRAY)
-    file_name1=os.getcwd()+"/images/"+"grayscale"+image.filename.replace(" ","-")
+    file_name1=os.getcwd()+"/image_volume/"+"grayscale"+image.filename.replace(" ","-")
     cv.imwrite(file_name1,gray)
     
     #cv.imshow('Image',img)
@@ -32,4 +32,4 @@ async def image(image:UploadFile=File(...)):
     return file
 
 if __name__=="__main__":
-    uvicorn.run(app,host="ec2-3-84-239-94.compute-1.amazonaws.com",port=8082)
+    uvicorn.run(app,host="ec2-3-84-239-94.compute-1.amazonaws.com",port=8099)
