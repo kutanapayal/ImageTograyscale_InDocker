@@ -32,4 +32,5 @@ async def image(image:UploadFile=File(...)):
     return file
 
 if __name__=="__main__":
-    uvicorn.run(app,host="",port=8099)
+    host_name=os.environ.get('ENV_HOSTNAME')
+    uvicorn.run(app,host=host_name,port=8099)
